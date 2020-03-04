@@ -265,6 +265,8 @@ public abstract class Authority {
 
     public static void addKnownAuthorities(List<Authority> authorities) {
         synchronized (sLock) {
+            //TODO: knownAuthorities should really be an instance variable on PCA
+            knownAuthorities.clear(); // clear known authorities from previous PCA
             knownAuthorities.addAll(authorities);
         }
     }
