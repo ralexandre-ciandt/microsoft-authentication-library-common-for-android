@@ -49,6 +49,7 @@ import java.util.List;
 
 import static com.microsoft.identity.common.internal.cache.CacheKeyValueDelegate.CACHE_VALUE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -212,6 +213,33 @@ public class SharedPreferencesAccountCredentialCacheTest extends AndroidSecretKe
         // Resurrect the Credential
         final Credential restoredRefreshToken = mSharedPreferencesAccountCredentialCache.getCredential(credentialCacheKey);
         assertTrue(refreshToken.equals(restoredRefreshToken));
+    }
+
+    @Test
+    public void stressTest() {
+
+        for (int i = 0; i < 10000; i++) {
+            final RefreshTokenRecord refreshToken = new RefreshTokenRecord();
+            refreshToken.setCredentialType(CredentialType.RefreshToken.name());
+            refreshToken.setEnvironment(ENVIRONMENT);
+            refreshToken.setHomeAccountId(HOME_ACCOUNT_ID);
+            refreshToken.setClientId(CLIENT_ID + i);
+            refreshToken.setSecret(SECRET);
+            refreshToken.setTarget(TARGET);
+
+            // Save the Credential
+            mSharedPreferencesAccountCredentialCache.saveCredential(refreshToken);
+
+            // Synthesize a cache key for it
+            final String credentialCacheKey = mDelegate.generateCacheKey(refreshToken);
+
+            // Resurrect the Credential
+            final Credential restoredRefreshToken = mSharedPreferencesAccountCredentialCache.getCredential(credentialCacheKey);
+            assertTrue(refreshToken.equals(restoredRefreshToken));
+        }
+
+        final List<Credential> credentials = mSharedPreferencesAccountCredentialCache.getCredentials();
+        assertTrue(credentials.size() == 10000);
     }
 
     @Test
