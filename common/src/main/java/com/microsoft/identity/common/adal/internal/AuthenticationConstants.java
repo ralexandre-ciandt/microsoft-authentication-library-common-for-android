@@ -1261,6 +1261,8 @@ public final class AuthenticationConstants {
         public static final String GET_CURRENT_ACCOUNT = "GET_CURRENT_ACCOUNT";
 
         public static final String REMOVE_ACCOUNT_FROM_SHARED_DEVICE = "REMOVE_ACCOUNT_FROM_SHARED_DEVICE";
+
+        public static final String CALCULATE_INPUT = "CALCULATE_INPUT";
     }
 
 
@@ -1319,6 +1321,7 @@ public final class AuthenticationConstants {
          */
         public static final String SIGN_OUT_FROM_SHARED_DEVICE_PATH = "/signOutFromSharedDevice";
 
+        public static final String CALCULATE_INPUT_PATH = "/calculateInput";
 
         /**
          * BrokerContentProvider URI code constant for hello request.
@@ -1359,6 +1362,8 @@ public final class AuthenticationConstants {
          * BrokerContentProvider URI code constant for signOutFromSharedDevice request.
          */
         public static final int SIGN_OUT_FROM_SHARED_DEVICE_CODE = 8;
+
+        public static final int CALCULATE_INPUT_CODE = 9;
 
     }
 

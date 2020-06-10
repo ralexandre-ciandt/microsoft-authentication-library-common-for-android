@@ -585,4 +585,22 @@ public class MsalBrokerResultAdapter implements IBrokerResultAdapter {
 
         return bundle.getBoolean(BROKER_DEVICE_MODE);
     }
+
+    public Bundle bundleFromCalculateInput(@NonNull final Bundle bundle) {
+        // TODO: implement
+        return bundle;
+    }
+
+    public String calculateInputFromResultBundle(@NonNull final Bundle bundle) throws BaseException {
+        // TODO: implement
+
+        if (!bundle.containsKey("Result")) {
+            throw new MsalBrokerResultAdapter().getBaseExceptionFromBundle(bundle);
+        }
+
+        String leftHand = bundle.getString("Num1") + " " + bundle.getString("Operation") + " " + bundle.getString("Num2");
+        String output = leftHand + " = " + bundle.getString("Result");
+
+        return output;
+    }
 }
