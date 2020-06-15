@@ -2,12 +2,16 @@ package com.microsoft.identity.common.internal.commands;
 
 import androidx.annotation.NonNull;
 
+import com.microsoft.identity.common.internal.commands.parameters.CalculateInputCommandParameters;
 import com.microsoft.identity.common.internal.commands.parameters.CommandParameters;
+import com.microsoft.identity.common.internal.commands.parameters.RemoveAccountCommandParameters;
 import com.microsoft.identity.common.internal.controllers.BaseController;
+
+import java.util.List;
 
 public class CalculateInputCommand extends BaseCommand<String> {
 
-    public CalculateInputCommand(@NonNull CommandParameters parameters,
+    public CalculateInputCommand(@NonNull CalculateInputCommandParameters parameters,
                                 @NonNull BaseController controller,
                                 @NonNull CommandCallback callback,
                                 @NonNull String publicApiId) {
@@ -16,9 +20,14 @@ public class CalculateInputCommand extends BaseCommand<String> {
 
     @Override
     public String execute() throws Exception {
-        // TODO: implement
-        String result = "REACHED";
-        return result;
+        // TODO: Fix which controller is called
+
+        BaseController controller = getDefaultController();
+        CalculateInputCommandParameters parameters = (CalculateInputCommandParameters) getParameters();
+        return controller.calculateInput(parameters);
+
+        //String result = "REACHED";
+        //return result;
     }
 
     @Override

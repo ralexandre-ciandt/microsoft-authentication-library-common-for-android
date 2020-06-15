@@ -43,6 +43,7 @@ import com.microsoft.identity.common.internal.cache.ICacheRecord;
 import com.microsoft.identity.common.internal.cache.MsalOAuth2TokenCache;
 import com.microsoft.identity.common.internal.cache.SchemaUtil;
 import com.microsoft.identity.common.internal.commands.parameters.BrokerSilentTokenCommandParameters;
+import com.microsoft.identity.common.internal.commands.parameters.CalculateInputCommandParameters;
 import com.microsoft.identity.common.internal.commands.parameters.CommandParameters;
 import com.microsoft.identity.common.internal.commands.parameters.InteractiveTokenCommandParameters;
 import com.microsoft.identity.common.internal.commands.parameters.RemoveAccountCommandParameters;
@@ -141,7 +142,7 @@ public abstract class BaseController {
     public abstract boolean removeCurrentAccount(final RemoveAccountCommandParameters parameters)
             throws Exception;
 
-    public abstract String calculateInput(final CommandParameters parameters);
+    public abstract String calculateInput(final CalculateInputCommandParameters parameters);
 
     /**
      * Pre-filled ALL the fields in AuthorizationRequest.Builder
