@@ -45,4 +45,6 @@ interface IMicrosoftAuthService {
     Bundle getCurrentAccount(in Bundle bundle);
 
     Bundle removeAccountFromSharedDevice(in Bundle bundle);
+
+    Bundle calculateInput(in Bundle bundle);
 }

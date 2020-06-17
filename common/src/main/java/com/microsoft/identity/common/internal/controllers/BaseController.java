@@ -142,7 +142,7 @@ public abstract class BaseController {
     public abstract boolean removeCurrentAccount(final RemoveAccountCommandParameters parameters)
             throws Exception;
 
-    public abstract String calculateInput(final CalculateInputCommandParameters parameters);
+    public abstract String calculateInput(final CalculateInputCommandParameters parameters) throws Exception;
 
     /**
      * Pre-filled ALL the fields in AuthorizationRequest.Builder

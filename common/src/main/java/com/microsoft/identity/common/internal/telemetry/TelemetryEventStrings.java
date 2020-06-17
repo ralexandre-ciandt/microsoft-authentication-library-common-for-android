@@ -150,6 +150,7 @@ public final class TelemetryEventStrings {
         public static final String BROKER_STRATEGY = EVENT_PREFIX +"broker_strategy";
         public static final String ACCOUNTS_NUMBER = EVENT_PREFIX + "accounts_number";
         public static final String IS_DEVICE_SHARED = EVENT_PREFIX + "is_device_shared";
+        public static final String CALCULATE_INPUT = EVENT_PREFIX + "calculate_input";
     }
 
     public static final class Value {
@@ -185,6 +186,7 @@ public final class TelemetryEventStrings {
         public static final String BROKER_GET_ACCOUNTS= "206";
         public static final String BROKER_REMOVE_ACCOUNT= "207";
         public static final String BROKER_REMOVE_ACCOUNT_FROM_SHARED_DEVICE= "208";
+        public static final String BROKER_CALCULATE_INPUT= "209";
 
         public static final String LOCAL_ACQUIRE_TOKEN_INTERACTIVE = "101";
         public static final String LOCAL_COMPLETE_ACQUIRE_TOKEN_INTERACTIVE = "1032";

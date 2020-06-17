@@ -44,6 +44,7 @@ import com.microsoft.identity.common.internal.broker.BrokerRequest;
 import com.microsoft.identity.common.internal.broker.BrokerValidator;
 import com.microsoft.identity.common.internal.commands.parameters.BrokerInteractiveTokenCommandParameters;
 import com.microsoft.identity.common.internal.commands.parameters.BrokerSilentTokenCommandParameters;
+import com.microsoft.identity.common.internal.commands.parameters.CalculateInputCommandParameters;
 import com.microsoft.identity.common.internal.commands.parameters.CommandParameters;
 import com.microsoft.identity.common.internal.commands.parameters.InteractiveTokenCommandParameters;
 import com.microsoft.identity.common.internal.commands.parameters.RemoveAccountCommandParameters;
@@ -574,6 +575,21 @@ public class MsalBrokerRequestAdapter implements IBrokerRequestAdapter {
                 AuthenticationConstants.Broker.NEGOTIATED_BP_VERSION_KEY,
                 negotiatedBrokerProtocolVersion
         );
+
+        return requestBundle;
+    }
+
+    /**
+     * Method to construct a request bundle for broker calculateInput request.
+     *
+     * @param parameters input parameters
+     * @return request bundle
+     */
+    public Bundle getRequestBundleForCalculateInput(@NonNull final CalculateInputCommandParameters parameters) {
+        final Bundle requestBundle = new Bundle();
+        requestBundle.putInt("Num1", parameters.getNum1());
+        requestBundle.putInt("Num2", parameters.getNum2());
+        requestBundle.putChar("Operation", parameters.getOperation());
 
         return requestBundle;
     }

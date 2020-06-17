@@ -1363,6 +1363,9 @@ public final class AuthenticationConstants {
          */
         public static final int SIGN_OUT_FROM_SHARED_DEVICE_CODE = 8;
 
+        /**
+         * BrokerContentProvider URI code constant for calculateInput request.
+         */
         public static final int CALCULATE_INPUT_CODE = 9;
 
     }

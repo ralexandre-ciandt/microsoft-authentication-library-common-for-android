@@ -20,14 +20,9 @@ public class CalculateInputCommand extends BaseCommand<String> {
 
     @Override
     public String execute() throws Exception {
-        // TODO: Fix which controller is called
-
         BaseController controller = getDefaultController();
         CalculateInputCommandParameters parameters = (CalculateInputCommandParameters) getParameters();
         return controller.calculateInput(parameters);
-
-        //String result = "REACHED";
-        //return result;
     }
 
     @Override
