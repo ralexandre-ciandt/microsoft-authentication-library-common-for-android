@@ -1,13 +1,8 @@
 package com.microsoft.identity.common.internal.commands;
 
 import androidx.annotation.NonNull;
-
 import com.microsoft.identity.common.internal.commands.parameters.CalculateInputCommandParameters;
-import com.microsoft.identity.common.internal.commands.parameters.CommandParameters;
-import com.microsoft.identity.common.internal.commands.parameters.RemoveAccountCommandParameters;
 import com.microsoft.identity.common.internal.controllers.BaseController;
-
-import java.util.List;
 
 public class CalculateInputCommand extends BaseCommand<String> {
 
