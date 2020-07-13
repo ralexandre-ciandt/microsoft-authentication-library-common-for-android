@@ -174,6 +174,10 @@ public abstract class OAuth2Strategy
         headers.putAll(Device.getPlatformIdParameters());
         headers.putAll(EstsTelemetry.getInstance().getTelemetryHeaders());
 
+        final String correlationId = DiagnosticContext.getRequestContext().get(DiagnosticContext.CORRELATION_ID);
+        Logger.verbose(TAG + methodName, "CorrelationId: " + correlationId);
+        Logger.verbose(TAG + methodName, "Token Endpoint: " + mTokenEndpoint);
+
         final HttpResponse response = HttpRequest.sendPost(
                 new URL(mTokenEndpoint),
                 headers,
