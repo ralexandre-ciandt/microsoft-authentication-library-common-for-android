@@ -24,6 +24,7 @@ package com.microsoft.identity.common.internal.providers.oauth2;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -175,8 +176,8 @@ public abstract class OAuth2Strategy
         headers.putAll(EstsTelemetry.getInstance().getTelemetryHeaders());
 
         final String correlationId = DiagnosticContext.getRequestContext().get(DiagnosticContext.CORRELATION_ID);
-        Logger.verbose(TAG + methodName, "CorrelationId: " + correlationId);
-        Logger.verbose(TAG + methodName, "Token Endpoint: " + mTokenEndpoint);
+        Log.v(TAG + methodName, "CorrelationId: " + correlationId);
+        Log.v(TAG + methodName, "Token Endpoint: " + mTokenEndpoint);
 
         final HttpResponse response = HttpRequest.sendPost(
                 new URL(mTokenEndpoint),
