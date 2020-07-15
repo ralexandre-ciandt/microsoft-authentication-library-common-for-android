@@ -20,14 +20,10 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
-package com.microsoft.identity.common.internal.commands.parameters;
+package com.microsoft.identity.common.internal.commands;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.experimental.SuperBuilder;
+import androidx.annotation.NonNull;
 
-@Getter
-@EqualsAndHashCode(callSuper = true)
-@SuperBuilder(toBuilder = true)
-public class DeviceCodeFlowCommandParameters extends TokenCommandParameters {
+public interface DCFCommandCallback<T, U> extends CommandCallback<T, U> {
+    void getUserCode(@NonNull String vUri, @NonNull String user_code, @NonNull String message);
 }

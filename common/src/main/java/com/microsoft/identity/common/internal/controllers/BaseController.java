@@ -147,9 +147,9 @@ public abstract class BaseController {
 
     public abstract String calculateInput(final CalculateInputCommandParameters parameters) throws Exception;
 
-    public abstract HttpResponse dcfAuthRequest(DeviceCodeFlowCommandParameters commandParameters) throws ServiceException;
+    public abstract HttpResponse dcfAuthRequest(DeviceCodeFlowCommandParameters commandParameters) throws Exception;
 
-    public abstract AcquireTokenResult dcfTokenRequest(DeviceCodeFlowCommandParameters commandParameters, HashMap<String, String> tokenParams) throws ServiceException;
+    public abstract AcquireTokenResult dcfTokenRequest(DeviceCodeFlowCommandParameters commandParameters, HashMap<String, String> tokenParams) throws Exception;
 
     /**
      * Pre-filled ALL the fields in AuthorizationRequest.Builder
