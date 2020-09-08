@@ -1,4 +1,4 @@
-vNext 3.0.0
+vNext 3.0.1-BEESMA-msal-test
 ----------
 - Removed constructor param for TokenShareUtility: MSA RefreshToken ingestion always queries WW /consumers.
 

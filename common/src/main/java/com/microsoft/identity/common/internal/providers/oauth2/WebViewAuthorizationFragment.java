@@ -24,6 +24,7 @@ package com.microsoft.identity.common.internal.providers.oauth2;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -221,6 +222,9 @@ public class WebViewAuthorizationFragment extends AuthorizationFragment {
         mWebView.getSettings().setSupportZoom(webViewZoomEnabled);
         mWebView.setVisibility(View.INVISIBLE);
         mWebView.setWebViewClient(webViewClient);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            mWebView.setWebContentsDebuggingEnabled(true);
+        }
     }
 
     /**
